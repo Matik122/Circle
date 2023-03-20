@@ -5,9 +5,10 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 public class Click : MonoBehaviour
-{ 
-    public Vector3 clickPosition;
+{
     [SerializeField] private CircleView _circleView;
+    [SerializeField] private int _minDist;
+    private  Vector3 _clickPosition;
     private CirlcleController _circleController;
     private void Start()
     {
@@ -26,13 +27,16 @@ public class Click : MonoBehaviour
                 ClickPosition(tapPositon);
             }
         }
-        
-        _circleController.ChangePosition(clickPosition);
+
+        if (Vector3.Distance(_circleView.transform.position, _clickPosition) > _minDist)
+        {
+            _circleController.ChangePosition(_clickPosition);
+        }
     }
 
     private void ClickPosition(Vector3 click)
     {
-        clickPosition = click;
-        clickPosition.z = 0;
+        _clickPosition = click;
+        _clickPosition.z = 0;
     }
 }

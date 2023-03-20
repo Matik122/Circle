@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b81873ab834264064aaa192b91651597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deathVFX: {fileID: 0}
+  _scoreCount: 1
 --- !u!1001 &3595343561672158999
 PrefabInstance:
   m_ObjectHideFlags: 0

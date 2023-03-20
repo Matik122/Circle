@@ -6,40 +6,38 @@ using UnityEngine;
 
 public class InterfaceEncounters : MonoBehaviour
 {
+    public ref int TotalScore => ref _totalScore;
+    public ref int TotalDistacne => ref _totalDistance;
+    public TextMeshProUGUI Score => _score;
+    public TextMeshProUGUI Distance => _distance;
     [SerializeField] private TextMeshProUGUI _score;
-    [SerializeField] private int _defaultScoreValue;
+    [SerializeField] private TextMeshProUGUI _distance;
+    [SerializeField] private int _defaultValue;
     private int _totalScore;
+    private int _totalDistance;
     
     private void Start()
     {
-        if (PlayerPrefs.HasKey("HighScore"))
-        {
-            _score.SetPrefToText("HighScore");
-            _totalScore = PlayerPrefs.GetInt("HighScore");
-        }
-        else
-        {
-            _score.text = _defaultScoreValue.ToString();
-        }
-    }
-
-
-    public void AddScore(int scoreValue)
-    {
-        _totalScore += scoreValue;
-        _score.text = _totalScore.ToString();
-        SetHighScore(_totalScore);
+        _score.SetPrefToText(ref _totalScore,_defaultValue,"HighScore");
+        _distance.SetPrefToText(ref _totalDistance,_defaultValue,"HighDistance");
     }
     
-    public void SetHighScore(int highScore)
+    public void AddValue(int scoreValue, ref int total, TextMeshProUGUI text,string pref)
     {
-        if (highScore > PlayerPrefs.GetInt("HighScore"))
+        total += scoreValue;
+        text.text = total.ToString();
+        SetHighScore(total,pref);
+    }
+    
+    private void SetHighScore(int highScore,string pref)
+    {
+        if (highScore > PlayerPrefs.GetInt(pref))
         {
-            PlayerPrefs.SetInt("HighScore", highScore);
+            PlayerPrefs.SetInt(pref, highScore);
         }
-        else if (!PlayerPrefs.HasKey("HighScore"))
+        else if (!PlayerPrefs.HasKey(pref))
         {
-            PlayerPrefs.SetInt("HighScore", _totalScore);
+            PlayerPrefs.SetInt(pref, highScore);
         }
     }
 

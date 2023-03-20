@@ -6,14 +6,19 @@ using UnityEngine.UI;
 
 public static class Extensions 
 {
-    public static void SetPrefToText(this TextMeshProUGUI text, string pref)
+    public static void SetPrefToText(this TextMeshProUGUI text, ref int total, int defaultValue, string pref)
     {
-        text.text = PlayerPrefs.GetInt(pref).ToString();
+        if (PlayerPrefs.HasKey(pref))
+        {
+            text.text = PlayerPrefs.GetInt(pref).ToString();
+            total = PlayerPrefs.GetInt(pref);
+        }
+        else
+        {
+            text.text = defaultValue.ToString();
+        }
     }
     
-    public static void SetPrefToInt(this int value, string pref)
-    {
-        value = PlayerPrefs.GetInt(pref);
-    }
+    
 
 }

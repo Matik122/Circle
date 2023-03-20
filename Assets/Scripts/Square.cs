@@ -9,10 +9,11 @@ using Random = UnityEngine.Random;
 
 public class Square : MonoBehaviour
 {
+    [SerializeField] private int _scoreCount;
     private InterfaceEncounters _uiInterfaceEncounters;
 
     [Inject]
-    public async void Construct(InterfaceEncounters interfaceEncounters)
+    public void Construct(InterfaceEncounters interfaceEncounters)
     {
         _uiInterfaceEncounters = interfaceEncounters;
     }
@@ -26,7 +27,8 @@ public class Square : MonoBehaviour
     public void Deactivate(bool isActive)
     {
         gameObject.SetActive(isActive);
-        _uiInterfaceEncounters.AddScore(1);
+        _uiInterfaceEncounters.AddValue(_scoreCount,ref _uiInterfaceEncounters.TotalScore,
+            _uiInterfaceEncounters.Score,"HighScore");
         transform.position = new Vector3(Random.Range(-14, 14), Random.Range(-6, 7), 0);
         ActivationDelay();
     }
