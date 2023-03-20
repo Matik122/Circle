@@ -4,7 +4,7 @@ using UnityEngine;
 using Zenject;
 
 public class GameInstaller : MonoInstaller
-{
+{ 
     [SerializeField] private Click _click;
     public override void InstallBindings()
     {

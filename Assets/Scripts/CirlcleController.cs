@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class CirlcleController
 {
-   private CircleModel _model;
+   public CircleModel model;
    private CircleView _view;
+   public CirlcleController(CircleModel model, CircleView view)
+   {
+      this.model = model;
+      _view = view;
+      model.OnPositionChanged += _view.SetPosition;
+   }
 }
+
+ 
