@@ -5,9 +5,9 @@ using Zenject;
 
 public class GameInstaller : MonoInstaller
 { 
-    [SerializeField] private Click _click;
+    [SerializeField] private InterfaceEncounters _click;
     public override void InstallBindings()
     {
-        Container.Bind<Click>().FromInstance(_click).AsSingle().NonLazy();
+        Container.Bind<InterfaceEncounters>().FromInstance(_click).AsSingle().NonLazy();
     }
 }

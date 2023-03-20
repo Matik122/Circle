@@ -14,10 +14,12 @@ public class CircleView : MonoBehaviour
     private void Start()
     {
         _trigger.OnTriggerEnterAsObservable()
+            .Where(t => t.gameObject.layer == LayerMask.NameToLayer("Box"))
             .Subscribe(collider =>
-            {
+            { 
                 collider.gameObject.SetActive(false);
-            }).AddTo(_disposable);
+            })
+            .AddTo(_disposable);
     }
 
     public void SetPosition(Vector3 endPostion)

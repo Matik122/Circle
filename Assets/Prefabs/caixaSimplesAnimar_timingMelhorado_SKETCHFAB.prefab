@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3886431819287609964}
   - component: {fileID: 7300188934013486633}
   - component: {fileID: 5658899122863772436}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: caixaSimplesAnimar_timingMelhorado_SKETCHFAB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
