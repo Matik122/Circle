@@ -1816,7 +1816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7ac2225b9c3541b0b914bff9b7995f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _speed: 0.6
   _trigger: {fileID: 7908440938985486143}
   _cuteDeath: {fileID: 8392787041638663552, guid: 1bb48ba33e37b4cc2a22df954cf71ab0, type: 3}
 --- !u!135 &7908440938985486143

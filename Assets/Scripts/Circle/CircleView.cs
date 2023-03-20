@@ -13,6 +13,7 @@ public class CircleView : MonoBehaviour
     private CompositeDisposable _disposable = new CompositeDisposable();
     private float totalDistance;
     private Vector3 lastPosition;
+    private Vector3 velocity;
     
     [Inject]
     public void Construct(InterfaceEncounters interfaceEncounters)
@@ -36,7 +37,7 @@ public class CircleView : MonoBehaviour
 
     public void SetPosition(Vector3 endPostion)
     {
-        transform.position = Vector3.MoveTowards(transform.position, endPostion,_speed * Time.deltaTime);
+        transform.position = Vector3.SmoothDamp(transform.position, endPostion,ref velocity, _speed);
         totalDistance  += Vector3.Distance(transform.position, lastPosition);
         int distanceValue = (int)Math.Ceiling(totalDistance / Constants.CeilingDivideValue);
         _uiInterfaceEncounters.AddValue(distanceValue,ref _uiInterfaceEncounters.TotalDistacne,
