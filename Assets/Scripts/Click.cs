@@ -8,7 +8,7 @@ public class Click : MonoBehaviour
 { 
     public Vector3 clickPosition;
     [SerializeField] private CircleView _circleView;
-    private CirlcleController _circleController;xwxw
+    private CirlcleController _circleController;
     private void Start()
     {
         _circleController = new CirlcleController(new CircleModel(), _circleView);
@@ -27,7 +27,7 @@ public class Click : MonoBehaviour
             }
         }
         
-        _circleController.model.ChangePosition(clickPosition);
+        _circleController.ChangePosition(clickPosition);
     }
 
     private void ClickPosition(Vector3 click)
