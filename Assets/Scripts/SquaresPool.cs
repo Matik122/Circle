@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class SquaresPool : MonoBehaviour
 {
@@ -21,7 +17,7 @@ public class SquaresPool : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             var square = transform.GetChild(i).GetComponent<Square>();
-            square.transform.position = new Vector3(Random.Range(-14, 14), Random.Range(-6, 7), 0);
+            square.transform.position = Constants.RandomPosition();
             square.StartAfterPool();
         }
     }

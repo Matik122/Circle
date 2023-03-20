@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using TMPro.Examples;
 using UnityEngine;
 
 public class InterfaceEncounters : MonoBehaviour
@@ -18,8 +15,8 @@ public class InterfaceEncounters : MonoBehaviour
     
     private void Start()
     {
-        _score.SetPrefToText(ref _totalScore,_defaultValue,"HighScore");
-        _distance.SetPrefToText(ref _totalDistance,_defaultValue,"HighDistance");
+        _score.SetPrefToText(ref _totalScore,_defaultValue,Constants.HighScoreDefinition);
+        _distance.SetPrefToText(ref _totalDistance,_defaultValue,Constants.HighDistanceDefinition);
     }
     
     public void AddValue(int scoreValue, ref int total, TextMeshProUGUI text,string pref)

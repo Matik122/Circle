@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
@@ -39,11 +37,10 @@ public class CircleView : MonoBehaviour
     public void SetPosition(Vector3 endPostion)
     {
         transform.position = Vector3.MoveTowards(transform.position, endPostion,_speed * Time.deltaTime);
-
         totalDistance  += Vector3.Distance(transform.position, lastPosition);
-        int distanceValue = (int)Math.Ceiling(totalDistance/10000);
+        int distanceValue = (int)Math.Ceiling(totalDistance / Constants.CeilingDivideValue);
         _uiInterfaceEncounters.AddValue(distanceValue,ref _uiInterfaceEncounters.TotalDistacne,
-            _uiInterfaceEncounters.Distance,"HighDistance");
+            _uiInterfaceEncounters.Distance,Constants.HighDistanceDefinition);
         lastPosition = transform.position;
     }
     

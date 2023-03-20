@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
@@ -10,6 +7,8 @@ using Random = UnityEngine.Random;
 public class Square : MonoBehaviour
 {
     [SerializeField] private int _scoreCount;
+    [SerializeField] private int _minSpawnValue;
+    [SerializeField] private int _maxSpawnValue;
     private InterfaceEncounters _uiInterfaceEncounters;
 
     [Inject]
@@ -28,15 +27,15 @@ public class Square : MonoBehaviour
     {
         gameObject.SetActive(isActive);
         _uiInterfaceEncounters.AddValue(_scoreCount,ref _uiInterfaceEncounters.TotalScore,
-            _uiInterfaceEncounters.Score,"HighScore");
-        transform.position = new Vector3(Random.Range(-14, 14), Random.Range(-6, 7), 0);
+            _uiInterfaceEncounters.Score,Constants.HighScoreDefinition);
+        transform.position = Constants.RandomPosition();
         ActivationDelay();
     }
     
 
     private async void ActivationDelay()
     {
-        await UniTask.Delay(TimeSpan.FromSeconds(Random.Range(2,15)), ignoreTimeScale: false);
+        await UniTask.Delay(TimeSpan.FromSeconds(Random.Range(_minSpawnValue,_maxSpawnValue)), ignoreTimeScale: false);
         gameObject.SetActive(true);
     }
 }

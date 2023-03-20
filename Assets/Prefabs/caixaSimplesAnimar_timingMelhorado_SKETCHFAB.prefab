@@ -114,6 +114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreCount: 1
+  _minSpawnValue: 2
+  _maxSpawnValue: 15
 --- !u!1001 &3595343561672158999
 PrefabInstance:
   m_ObjectHideFlags: 0
