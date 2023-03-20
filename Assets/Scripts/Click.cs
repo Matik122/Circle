@@ -8,8 +8,7 @@ public class Click : MonoBehaviour
 { 
     public Vector3 clickPosition;
     [SerializeField] private CircleView _circleView;
-    private CirlcleController _circleController;
-
+    private CirlcleController _circleController;xwxw
     private void Start()
     {
         _circleController = new CirlcleController(new CircleModel(), _circleView);
@@ -20,14 +19,20 @@ public class Click : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                clickPosition = hit.point;
-                clickPosition.z = 0;
+                Vector3 tapPositon = hit.collider.gameObject.layer == _circleView.gameObject.layer ? 
+                    _circleView.transform.position : hit.point;
+                ClickPosition(tapPositon);
             }
         }
         
         _circleController.model.ChangePosition(clickPosition);
+    }
+
+    private void ClickPosition(Vector3 click)
+    {
+        clickPosition = click;
+        clickPosition.z = 0;
     }
 }
