@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
@@ -9,9 +10,9 @@ using Random = UnityEngine.Random;
 public class Square : MonoBehaviour
 {
     private InterfaceEncounters _uiInterfaceEncounters;
-    
+
     [Inject]
-    public void Construct(InterfaceEncounters interfaceEncounters)
+    public async void Construct(InterfaceEncounters interfaceEncounters)
     {
         _uiInterfaceEncounters = interfaceEncounters;
     }
