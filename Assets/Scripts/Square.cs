@@ -34,7 +34,7 @@ public class Square : MonoBehaviour
 
     private async void ActivationDelay()
     {
-        await UniTask.Delay(TimeSpan.FromSeconds(Random.Range(5,20)), ignoreTimeScale: false);
+        await UniTask.Delay(TimeSpan.FromSeconds(Random.Range(2,15)), ignoreTimeScale: false);
         gameObject.SetActive(true);
     }
 }
