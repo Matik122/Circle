@@ -16,8 +16,9 @@ public class CircleView : MonoBehaviour
         _trigger.OnTriggerEnterAsObservable()
             .Where(t => t.gameObject.layer == LayerMask.NameToLayer("Box"))
             .Subscribe(collider =>
-            { 
-                collider.gameObject.SetActive(false);
+            {
+                var square = collider.GetComponent<Square>();
+                square.Deactivate(false);
             })
             .AddTo(_disposable);
     }

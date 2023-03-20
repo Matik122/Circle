@@ -20,8 +20,9 @@ public class SquaresPool : MonoBehaviour
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            var square = transform.GetChild(i);
-            square.position = new Vector3(Random.Range(-14, 14), Random.Range(-6, 7), 0);
+            var square = transform.GetChild(i).GetComponent<Square>();
+            square.transform.position = new Vector3(Random.Range(-14, 14), Random.Range(-6, 7), 0);
+            square.StartAfterPool();
         }
     }
 }

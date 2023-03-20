@@ -22,9 +22,9 @@ public class ObjectPoolingBehaviour<T> where T : MonoBehaviour
         }
     }
 
-    private T CreatePoolObject(bool isActive = true)
+    private T CreatePoolObject(bool isActive = false)
     {
-        var poolObject = Object.Instantiate(prefab, container);
+        var poolObject = DIContainerRef.Container.InstantiatePrefab(prefab, container).GetComponent<T>();
         poolObject.gameObject.SetActive(isActive);
         _poolList.Add(poolObject);
         return poolObject;

@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 public class GameInstaller : MonoInstaller
 { 
-    [SerializeField] private InterfaceEncounters _click;
+    [SerializeField] private InterfaceEncounters _interface;
+    [Inject] private DiContainer _diContainer;
     public override void InstallBindings()
     {
-        Container.Bind<InterfaceEncounters>().FromInstance(_click).AsSingle().NonLazy();
+        DIContainerRef.Container = _diContainer;
+        Container.Bind<InterfaceEncounters>().FromInstance(_interface).AsSingle().NonLazy();
     }
 }
