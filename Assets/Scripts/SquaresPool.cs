@@ -22,7 +22,6 @@ public class SquaresPool : MonoBehaviour
         {
             var square = transform.GetChild(i);
             square.position = new Vector3(Random.Range(-14, 14), Random.Range(-6, 7), 0);
-            square.gameObject.SetActive(false);
         }
     }
 }
