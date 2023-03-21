@@ -9,6 +9,7 @@ public class CircleView : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private Collider _trigger;
     [SerializeField] private ParticleSystem _cuteDeath;
+    
     private InterfaceEncounters _uiInterfaceEncounters;
     private CompositeDisposable _disposable = new CompositeDisposable();
     private float _totalDistance;

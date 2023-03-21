@@ -5,6 +5,7 @@ public class ObjectPoolingBehaviour<T> where T : MonoBehaviour
 {
     public T prefab { get;}
     public Transform container;
+    
     private List<T> _poolList = new();
 
     public ObjectPoolingBehaviour(T prefab, int poolCount, Transform container)
@@ -42,6 +43,7 @@ public class ObjectPoolingBehaviour<T> where T : MonoBehaviour
                 return true;
             }
         }
+        
         element = null;
         return false;
     }

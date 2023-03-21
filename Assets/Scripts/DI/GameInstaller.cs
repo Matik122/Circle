@@ -7,6 +7,7 @@ using Zenject;
 public class GameInstaller : MonoInstaller
 { 
     [SerializeField] private InterfaceEncounters _interface;
+    
     [Inject] private DiContainer _diContainer;
     
     public override void InstallBindings()

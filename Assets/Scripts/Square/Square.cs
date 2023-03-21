@@ -9,6 +9,7 @@ public class Square : MonoBehaviour
     [SerializeField] private int _scoreCount;
     [SerializeField] private int _minSpawnValue;
     [SerializeField] private int _maxSpawnValue;
+    
     private InterfaceEncounters _uiInterfaceEncounters;
 
     [Inject]

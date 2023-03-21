@@ -4,6 +4,7 @@ public class Click : MonoBehaviour
 {
     [SerializeField] private CircleView _circleView;
     [SerializeField] private int _minDist;
+    
     private  Vector3 _clickPosition;
     private CirlcleController _circleController;
     private Ray ray;
