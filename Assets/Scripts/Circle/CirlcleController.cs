@@ -19,5 +19,3 @@ public class CirlcleController
       _model.ChangeModelPosition(changePosition);
    }
 }
-
- 
