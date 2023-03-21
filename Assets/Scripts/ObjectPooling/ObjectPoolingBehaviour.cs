@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class ObjectPoolingBehaviour<T> where T : MonoBehaviour
 {
-    public T prefab { get; set; }
+    public T prefab { get;}
     public Transform container;
-    private List<T> _poolList = new List<T>();
+    private List<T> _poolList = new();
 
     public ObjectPoolingBehaviour(T prefab, int poolCount, Transform container)
     {
@@ -16,7 +16,7 @@ public class ObjectPoolingBehaviour<T> where T : MonoBehaviour
 
     private void InstantiatePool(int poolCount)
     {
-        for (int i = 0; i < poolCount; i++)
+        for (var i = 0; i < poolCount; i++)
         {
             CreatePoolObject();
         }
@@ -30,7 +30,7 @@ public class ObjectPoolingBehaviour<T> where T : MonoBehaviour
         return poolObject;
     }
 
-    //Find if element in pool is free
+
     public bool IsElementFree(out T element)
     {
         foreach (var freeElement in _poolList)

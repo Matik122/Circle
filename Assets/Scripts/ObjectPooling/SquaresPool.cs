@@ -4,6 +4,7 @@ public class SquaresPool : MonoBehaviour
 {
     [SerializeField] private int _poolCount;
     [SerializeField] private Square _square;
+    
     private ObjectPoolingBehaviour<Square> _pool;
 
     private void Start()
@@ -17,7 +18,7 @@ public class SquaresPool : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             var square = transform.GetChild(i).GetComponent<Square>();
-            square.transform.position = Constants.RandomPosition();
+            square.transform.position = VectorUtils.RandomPosition();
             square.StartAfterPool();
         }
     }

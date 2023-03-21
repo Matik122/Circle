@@ -6,16 +6,19 @@ public class Click : MonoBehaviour
     [SerializeField] private int _minDist;
     private  Vector3 _clickPosition;
     private CirlcleController _circleController;
+    private Ray ray;
+    
     private void Start()
     {
-        _circleController = new CirlcleController(new CircleModel(), _circleView);
+        _circleController = new CirlcleController(new CircleModel(_circleView.transform.position), _circleView);
     }
-
+    
     private void Update()
     {
         if (Input.GetMouseButton(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 Vector3 tapPositon = hit.collider.gameObject.layer == _circleView.gameObject.layer ? 
