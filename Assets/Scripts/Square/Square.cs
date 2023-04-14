@@ -20,7 +20,6 @@ public class Square : MonoBehaviour
     
     public void StartAfterPool()
     {
-        Construct(_uiInterfaceEncounters);
         ActivationDelay();
     }
     

@@ -24,7 +24,6 @@ public class CircleView : MonoBehaviour
 
     private void Start()
     {
-        Construct(_uiInterfaceEncounters);
         _trigger.OnTriggerEnterAsObservable()
             .Where(t => t.gameObject.layer == LayerMask.NameToLayer("Box"))
             .Subscribe(collider =>
